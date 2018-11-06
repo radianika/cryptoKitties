@@ -1,0 +1,68 @@
+$first: #ffe0e5;
+$second: #d3e8ff;
+$third: #efe1da;
+
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Caveat', cursive;
+	font-size: 16px;
+	line-height: 1;
+}
+
+
+
+.header{
+	padding: 5vh 10vw;
+	display: flex;
+	justify-content: space-between;
+	position: fixed;
+	width:100%;
+	background-color:  rgba(255, 255, 255, 0.8);
+
+	
+}
+.btn {
+	border-radius: 5px;
+	background-color: $first;
+	padding: 15px 30px;
+	border: none;
+	margin: 0 15px;
+}
+.main{
+	padding: 15vh 10vw 5vh;
+}
+.cats_plate {
+	display: flex;
+	justify-content: flex-start;
+	width: 100%;
+	flex-direction: row;
+	flex-wrap: wrap;
+
+}
+
+.item-card {
+	width: 20%;
+	padding: 15px;
+//	transform: translateX(-15px);
+}
+
+.cats-card {
+	display: flex;
+	flex-direction: column;
+	border-radius: 10px;
+	justify-content: center;
+	align-items: center;
+	padding: 20px;
+	&__price {
+		background-color: white;
+		padding: 5px;
+		border-radius: 5px;
+		min-width: 80%;
+		text-align: center;
+	}
+}
+
+
