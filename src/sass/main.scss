@@ -64,5 +64,14 @@ $third: #efe1da;
 		text-align: center;
 	}
 }
+.closed{
+	display:none;
+}
 
-
+.bag{
+	position: fixed;
+	right: 10vw;
+	top:15vh;
+	border:1px solid black;
+	background-color: aliceblue;
+}

@@ -7,6 +7,14 @@ var catsCountWord = document.querySelector('.js');
 var request = new XMLHttpRequest();
 var page = 1;
 var catsCount = 1;
+var bag = document.querySelector('#shoping-bag');
+var bagWindow = document.querySelector('.js-shopping-cart');
+
+
+
+var closeBag = document.querySelector('.close-btn');
+	closeBag.addEventListener('click', function(){
+		bagWindow.classList.add('closed')});
 //получение данных от сервера
 
 function addFromServer() {
@@ -19,6 +27,7 @@ function addFromServer() {
 			var catsData = resp.cats;
 			// и создание  котиков
 			createCat(catsData);
+			contentHeight = document.querySelector('body').offsetHeight;
 		} else {
 
 			alert('ты не нравишься котикам, уходи!');
@@ -43,7 +52,11 @@ function declOfNum(number, titles) {
 	cases = [2, 0, 1, 1, 1, 2];
 	return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
 }
+ 
 
+
+var catsToBuy = [];
+var catForCart={};
 //создание карточки для котиков
 function createCat(data) {
 	for (let i = 0; i < data.length; i++) {
@@ -57,13 +70,42 @@ function createCat(data) {
 			catsCountWord.innerHTML = declOfNum(catsCount, ['котик', 'котика', 'котиков']);
 			catsCount++;
 		});
+//		cart.addEventListener('click', addTocart);
+
 		price.innerHTML = data[i].price;
 		img.setAttribute('src', data[i].img_url);
 		var randomBackground = randomInteger(0, 8);
 		cat.style.background = bgColors[randomBackground];
+			cart.addEventListener('click', function(){
+			catForCart.price = data[i].price;
+			catForCart.src = data[i].img_url;
+				let clone = Object.assign({}, catForCart);
+			catsToBuy.push(clone);
+				console.log(catsToBuy);
+				addTocart(catsToBuy);
+		});
 		plate.appendChild(card);
 	}
 }
+
+function addTocart(data){
+	for(let i=0; i<data.length; i++){
+	var item=document.importNode(document.querySelector('#shoping-bag-temp').content, true);
+	var del = item.querySelector('.item-delete');
+	var bagImg = item.querySelector('.item-img');
+	bagImg.setAttribute('src', data[i].src);
+	var plus = item.querySelector('.plus-btn');
+	var input = item.querySelector('.input');
+	var minus = item.querySelector('.minus-btn');
+	var total = item.querySelector('.total-price');
+		total.innerHTML = data[i].price;
+	bagWindow.appendChild(item);
+	}
+}
+//закрыть корзину
+
+	
+
 //добавить при загрузке
 window.onload = addFromServer();
 
@@ -71,19 +113,20 @@ window.onload = addFromServer();
 moreCats.addEventListener('click', addFromServer);
 
 //добавить при скролле
-var contentHeight = 1000;
+var contentHeight = document.querySelector('body').offsetHeight;
 
-window.onscroll = function () {
-	scroll();
-};
+window.onscroll = scroll;
 
 
 function scroll() {
 	//	 var scrolled = window.pageYOffset || document.documentElement.scrollTop;
 	//  document.getElementById('showScroll').innerHTML = scrolled + 'px';
-	if (window.pageYOffset > contentHeight) {
+	if (window.pageYOffset > (contentHeight-500)) {
 		addFromServer();
 		page++;
-		contentHeight += pageYOffset;
 	}
-}
+};
+
+
+bag.addEventListener('click', function(){
+bagWindow.classList.remove('closed')});

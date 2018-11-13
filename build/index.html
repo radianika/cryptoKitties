@@ -12,13 +12,20 @@
 <body>
 	<header class="header">
 		<butoon class="btn js-addCat" type="button">Больше славных котиков ^_^</butoon>
-		<button class="btn bag" type="button"><span class="js-cats-in-bag">0</span> <span class="js">котиков</span> в корзине</button>
+		<button class="btn bag-btn" type="button" id="shoping-bag"><span class="js-cats-in-bag">0</span> <span class="js">котиков</span> в корзине</button>
+		<div class="bag js-shopping-cart closed " >
+			<p class="shopping-cart-title">Shopping bag</p>
+			<button class="close-btn">закрыть</button>
+			
+			
+		</div>
 	</header>
 	<main class="main">
 		<div class="cats_plate">
 		</div>
 	</main>
-	<footer class="footer"></footer>
+	<footer class="footer"> 
+	<button type="button" class="js-invisibleScroll"></button></footer>
 	<template id="cat-template">
 		<div class="item-card">
 	  <div class="cats-card">
@@ -27,6 +34,22 @@
 		<button type="button" class="btn js-cart">Добавить в корзину</button>
 	</div>
 	</div>
+	</template>
+	<template id="shoping-bag-temp">
+		<div class="shoping-item">
+			<button class="item-delete" type="button"></button>
+			<div class="item-img-wrapper"><img class="item-img"></div>
+			 <div class="quantity">
+          <button class="plus-btn" type="button" name="button">
+            +
+          </button>
+          <input type="text" name="name" value="1" class="input">
+          <button class="minus-btn" type="button" name="button">
+            -
+          </button>
+        </div>
+        <div class="total-price"></div>
+      </div>
 	</template>
 	<script src="js/main.js"></script>
 </body>
