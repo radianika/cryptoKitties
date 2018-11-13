@@ -14,7 +14,7 @@ var bagWindow = document.querySelector('.js-shopping-cart');
 
 var closeBag = document.querySelector('.close-btn');
 	closeBag.addEventListener('click', function(){
-		bagWindow.classList.add('closed')});
+		document.querySelector('.bag').classList.add('closed')});
 //получение данных от сервера
 
 function addFromServer() {
@@ -99,8 +99,8 @@ function addTocart(data){
 	var minus = item.querySelector('.minus-btn');
 	var total = item.querySelector('.total-price');
 		total.innerHTML = data[i].price;
-	bagWindow.appendChild(item);
 	}
+		bagWindow.appendChild(item);
 }
 //закрыть корзину
 
@@ -129,4 +129,4 @@ function scroll() {
 
 
 bag.addEventListener('click', function(){
-bagWindow.classList.remove('closed')});
+document.querySelector('.bag').classList.toggle('closed')});

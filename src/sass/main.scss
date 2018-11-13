@@ -72,6 +72,18 @@ $third: #efe1da;
 	position: fixed;
 	right: 10vw;
 	top:15vh;
-	border:1px solid black;
-	background-color: aliceblue;
+	border-radius: 5px;
+	border: 1px solid $third;
+	background-color: white;
+	width: 50%;
+	padding: 20px;
+}
+.shoping-item{
+	display: flex;
+	align-items:center;
+	
+}
+.item-img-wrapper{
+	width:30%;
+	height: 20vh;
 }
