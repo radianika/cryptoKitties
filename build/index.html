@@ -5,29 +5,32 @@
 	<meta charset="UTF-8">
 	<title>Котики^_^</title>
 	<link href="https://fonts.googleapis.com/css?family=Caveat:400,700&amp;subset=cyrillic" rel="stylesheet">
-
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
 <body>
 	<header class="header">
 		<butoon class="btn js-addCat" type="button">Больше славных котиков ^_^</butoon>
-		<button class="btn bag-btn" type="button" id="shoping-bag"><span class="js-cats-in-bag">0</span> <span class="js">котиков</span> в корзине</button>
-		<div class="bag  closed " >
+		<button class="btn bag-btn" type="button" id="shoping-bag">
+		<span class="js-cats-in-bag">0</span> 
+		<span class="js">котиков</span> в корзине
+		</button>
+		<div class="bag  closed">
 			<p class="shopping-cart-title">Shopping bag</p>
-			<button class="close-btn">закрыть</button>
+			<button class="close-btn"><i class="fas fa-times"></i></button>
 			<div class="js-shopping-cart">Корзина пуста, как мои надежды
 			</div>
-			
+
 		</div>
 	</header>
 	<main class="main">
 		<div class="cats_plate">
 		</div>
 	</main>
-	<footer class="footer"> 
-	<button type="button" class="js-invisibleScroll"></button></footer>
-	<template id="cat-template">
+	<footer class="footer">
+		<button type="button" class="js-invisibleScroll"></button></footer>
+	<template class="js-catCard-template">
 		<div class="item-card">
 	  <div class="cats-card">
 		<div class="cats-card__price">for sale <span class="js-price"></span></div>
@@ -36,9 +39,9 @@
 	</div>
 	</div>
 	</template>
-	<template id="shoping-bag-temp">
+	<template class="js-shopingBag-template">
 		<div class="shoping-item">
-			<button class="item-delete" type="button"></button>
+			<button class="item-delete" type="button"><i class="far fa-trash-alt"></i></button>
 			<div class="item-img-wrapper"><img class="item-img"></div>
 			 <div class="quantity">
           <button class="plus-btn" type="button" name="button">
